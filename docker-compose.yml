@@ -1,0 +1,27 @@
+# StellarFund frontend — production container.
+#
+# The Soroban contract is already deployed on Stellar Testnet; this service runs
+# the Next.js app that talks to it over the public RPC. It works with zero config
+# (defaults are baked in). To target a different contract, set the NEXT_PUBLIC_*
+# variables in a .env file next to this compose file before `docker compose build`.
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      args:
+        # Passed through to the build only if set on the host; otherwise the
+        # in-app testnet defaults apply.
+        NEXT_PUBLIC_SOROBAN_RPC_URL: ${NEXT_PUBLIC_SOROBAN_RPC_URL:-}
+        NEXT_PUBLIC_NETWORK_PASSPHRASE: ${NEXT_PUBLIC_NETWORK_PASSPHRASE:-}
+        NEXT_PUBLIC_CONTRACT_ID: ${NEXT_PUBLIC_CONTRACT_ID:-}
+        NEXT_PUBLIC_TOKEN_SAC: ${NEXT_PUBLIC_TOKEN_SAC:-}
+        NEXT_PUBLIC_TOKEN_SYMBOL: ${NEXT_PUBLIC_TOKEN_SYMBOL:-}
+        NEXT_PUBLIC_TOKEN_DECIMALS: ${NEXT_PUBLIC_TOKEN_DECIMALS:-}
+        NEXT_PUBLIC_EXPLORER_BASE: ${NEXT_PUBLIC_EXPLORER_BASE:-}
+    image: stellarfund-web
+    container_name: stellarfund-web
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    restart: unless-stopped

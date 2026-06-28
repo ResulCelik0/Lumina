@@ -115,7 +115,11 @@ StellarWalletsKit. Public config values are the only thing shipped to the browse
 │   ├── src/lib/                   # config, wallet, contract, events, errors, format
 │   ├── src/hooks/                 # useWallet, useCampaign, useContractEvents
 │   ├── src/components/            # Dashboard, CampaignCard, ContributeForm, TxStatus, ActivityFeed, …
-│   └── scripts/check.ts           # standalone RPC sanity check
+│   ├── scripts/check.ts           # standalone RPC sanity check
+│   ├── Dockerfile                 # multi-stage, standalone, non-root production image
+│   └── .dockerignore
+├── docker-compose.yml             # one-command run of the frontend
+├── Makefile                       # build / run / deploy helpers (`make help`)
 ├── Cargo.toml                     # Rust workspace
 └── README.md
 ```
@@ -131,7 +135,38 @@ StellarWalletsKit. Public config values are the only thing shipped to the browse
 
 ## 🚀 Getting started
 
-### Prerequisites
+> The Soroban contract is **already deployed on Testnet**, so any of the options
+> below run the app against the live contract with **zero configuration**.
+
+### Option A — Docker (recommended, one command)
+
+Requires Docker + Docker Compose.
+
+```bash
+make up        # builds the image and starts the app (detached)
+# → open http://localhost:3000
+
+make logs      # follow logs
+make down      # stop & remove the container
+```
+
+`make up` wraps `docker compose up -d --build`. Override the host port with
+`WEB_PORT=8080 make up`. Run `make help` to see every target (contract build/test,
+local dev, Docker lifecycle).
+
+### Makefile targets
+
+| Target | What it does |
+| --- | --- |
+| `make up` / `make start` | Build & run the app in Docker (detached) |
+| `make run` | Same, in the foreground |
+| `make down` / `make restart` / `make logs` / `make ps` | Container lifecycle |
+| `make clean` | Stop and remove the built image |
+| `make install` / `make dev` / `make web-build` / `make lint` | Local frontend workflow |
+| `make contract-test` / `make contract-build` / `make deploy` | Smart-contract workflow |
+| `make check` | RPC sanity check against testnet |
+
+### Prerequisites (for the non-Docker options)
 
 - Node.js ≥ 20 and npm
 - (Contract only) Rust + the Stellar CLI:
@@ -141,7 +176,7 @@ StellarWalletsKit. Public config values are the only thing shipped to the browse
   brew install stellar-cli        # or: cargo install --locked stellar-cli
   ```
 
-### 1. Run the frontend (against the already-deployed contract)
+### Option B — Run the frontend locally (against the already-deployed contract)
 
 ```bash
 cd web
@@ -156,7 +191,7 @@ Open the app, click **Connect Wallet**, pick a wallet (Freighter recommended; se
 > Useful RPC sanity check (no browser needed):
 > `node --experimental-strip-types scripts/check.ts`
 
-### 2. Build, test & (re)deploy the contract — optional
+### Option C — Build, test & (re)deploy the contract — optional
 
 ```bash
 # from the repo root

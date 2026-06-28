@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+.gitignore
+Dockerfile
+.dockerignore
+README.md
+coverage
+.vercel
+*.tsbuildinfo
+# Local env (image uses build args / baked defaults, never local secrets)
+.env*
+!.env.example
