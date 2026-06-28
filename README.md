@@ -1,5 +1,7 @@
 # Lumina — Soroban Crowdfunding dApp
 
+**🌐 Live:** https://resulcelik0.github.io/Lumina/
+
 A multi-wallet crowdfunding application on **Stellar Testnet**. Contributors fund an
 on-chain campaign in XLM through a **Soroban smart contract**; the frontend reads and
 writes contract state, tracks every transaction's status, and streams contract
@@ -25,9 +27,9 @@ writes contract state, tracks every transaction's status, and streams contract
 
 All raw deployment metadata also lives in [`deployments/testnet.json`](deployments/testnet.json).
 
-**Live demo:** deployable to **GitHub Pages** (static, see
-[Deploy to GitHub Pages](#deploy-to-github-pages)) or Vercel. The app runs fully against
-the public testnet contract above with zero extra configuration.
+**🌐 Live demo:** **https://resulcelik0.github.io/Lumina/** (GitHub Pages, static export).
+Also deployable to Vercel. The app runs fully against the public testnet contract above
+with zero extra configuration.
 
 ---
 
