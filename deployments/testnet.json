@@ -1,0 +1,33 @@
+{
+  "network": "testnet",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "rpcUrl": "https://soroban-testnet.stellar.org",
+  "horizonUrl": "https://horizon-testnet.stellar.org",
+  "contractId": "CAM3ICMZ5IIANPDDIM3BJMBSQAO2MYYXJOZCFVVKCBMSZNXVQRULBZJC",
+  "wasmHash": "90f3ea044a115f307af8856bed6ae9bca8914a575f6e9c7a50067fd89079224e",
+  "token": {
+    "symbol": "XLM",
+    "decimals": 7,
+    "sacAddress": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+    "asset": "native"
+  },
+  "campaign": {
+    "admin": "GC6G4GB66CT4ISRIHPEP7ATD2X32RPKKAM6VDNW3MUZ5XPJGJHGUCY4T",
+    "goalStroops": "1000000000",
+    "goalXlm": 100,
+    "deadlineUnix": 1785260413,
+    "deadlineIso": "2026-07-28T17:40:13Z"
+  },
+  "transactions": {
+    "wasmUpload": "1b2b08109682914230c2948c54f8993e8207e14b1b92f1c01d37949319a5a858",
+    "deploy": "12f808a91e3d712676493b0263fdf095efe423eb78711bd4eee2333bbe5fbc12",
+    "initialize": "b357faf9b299a241b98ec6bc6a4f445961bbfe80506e1441cc01e963fa249030",
+    "firstContribute": "5124fcbdeb64ea76a68bc7d7e0d4f9f48cc28c32a5dc51d5117ef7257aa830a5"
+  },
+  "explorer": {
+    "contract": "https://stellar.expert/explorer/testnet/contract/CAM3ICMZ5IIANPDDIM3BJMBSQAO2MYYXJOZCFVVKCBMSZNXVQRULBZJC",
+    "deployTx": "https://stellar.expert/explorer/testnet/tx/12f808a91e3d712676493b0263fdf095efe423eb78711bd4eee2333bbe5fbc12",
+    "initializeTx": "https://stellar.expert/explorer/testnet/tx/b357faf9b299a241b98ec6bc6a4f445961bbfe80506e1441cc01e963fa249030",
+    "contributeTx": "https://stellar.expert/explorer/testnet/tx/5124fcbdeb64ea76a68bc7d7e0d4f9f48cc28c32a5dc51d5117ef7257aa830a5"
+  }
+}
