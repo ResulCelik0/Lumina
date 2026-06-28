@@ -232,9 +232,9 @@ server**. A workflow ([`.github/workflows/deploy-pages.yml`](.github/workflows/d
 builds a static export (`output: "export"`) and publishes it on every push to `main`.
 
 1. Push this repo to GitHub.
-2. In the repo: **Settings → Pages → Build and deployment → Source = GitHub Actions**.
-3. Push to `main` (or run the workflow manually). The app is published at
-   `https://<user>.github.io/<repo>/`.
+2. The workflow auto-enables Pages (Actions source) on its first run and publishes the
+   app at `https://<user>.github.io/<repo>/`. _(If your org restricts auto-enable, set
+   **Settings → Pages → Source = GitHub Actions** once, then re-run the workflow.)_
 
 The workflow derives the correct `basePath` (`/<repo>`) automatically, so assets resolve
 under the project sub-path. Build it locally the same way:
