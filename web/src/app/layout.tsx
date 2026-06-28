@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StellarFund — Soroban Crowdfunding",
+  title: "Lumina — Soroban Crowdfunding",
   description:
     "A multi-wallet crowdfunding dApp on Stellar Testnet. Contribute XLM to a Soroban smart contract with real-time on-chain event updates and live transaction status.",
 };

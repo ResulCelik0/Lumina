@@ -1,4 +1,4 @@
-# StellarFund frontend — production container.
+# Lumina frontend — production container.
 #
 # The Soroban contract is already deployed on Stellar Testnet; this service runs
 # the Next.js app that talks to it over the public RPC. It works with zero config
@@ -20,8 +20,8 @@ services:
         NEXT_PUBLIC_TOKEN_SYMBOL: ${NEXT_PUBLIC_TOKEN_SYMBOL:-}
         NEXT_PUBLIC_TOKEN_DECIMALS: ${NEXT_PUBLIC_TOKEN_DECIMALS:-}
         NEXT_PUBLIC_EXPLORER_BASE: ${NEXT_PUBLIC_EXPLORER_BASE:-}
-    image: stellarfund-web
-    container_name: stellarfund-web
+    image: lumina-web
+    container_name: lumina-web
     ports:
       - "${WEB_PORT:-3000}:3000"
     restart: unless-stopped

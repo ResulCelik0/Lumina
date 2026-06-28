@@ -70,7 +70,7 @@ export function Dashboard() {
               ◎
             </div>
             <div>
-              <p className="text-sm font-bold leading-tight text-white">StellarFund</p>
+              <p className="text-sm font-bold leading-tight text-white">Lumina</p>
               <p className="text-[11px] leading-tight text-slate-500">
                 Soroban crowdfunding · Testnet
               </p>

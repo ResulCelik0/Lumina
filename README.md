@@ -1,4 +1,4 @@
-# StellarFund — Soroban Crowdfunding dApp
+# Lumina — Soroban Crowdfunding dApp
 
 A multi-wallet crowdfunding application on **Stellar Testnet**. Contributors fund an
 on-chain campaign in XLM through a **Soroban smart contract**; the frontend reads and
@@ -60,7 +60,7 @@ contract above with zero extra configuration.
 
 ## 🧱 What it does
 
-**StellarFund** runs a single crowdfunding campaign as a Soroban contract:
+**Lumina** runs a single crowdfunding campaign as a Soroban contract:
 
 - **Contribute** — anyone connects a wallet and pledges XLM. Funds are escrowed in the
   contract; a `contribute` event is emitted and the progress bar updates live.

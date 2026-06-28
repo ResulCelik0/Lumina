@@ -1,4 +1,4 @@
-# StellarFund — Soroban crowdfunding dApp
+# Lumina — Soroban crowdfunding dApp
 # Run `make` or `make help` to list available targets.
 
 SHELL := /bin/bash
@@ -15,7 +15,7 @@ WEB_PORT ?= 3000
 .PHONY: up
 up: ## Build & start the app in Docker (detached)
 	$(COMPOSE) up -d --build
-	@echo "✅ StellarFund running at http://localhost:$(WEB_PORT)"
+	@echo "✅ Lumina running at http://localhost:$(WEB_PORT)"
 
 .PHONY: start
 start: up ## Alias for `up`
@@ -87,7 +87,7 @@ deploy: contract-build ## Deploy the contract to testnet (needs a funded `deploy
 
 .PHONY: help
 help: ## Show this help
-	@echo "StellarFund — available targets:"
+	@echo "Lumina — available targets:"
 	@grep -hE '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 	@echo ""

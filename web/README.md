@@ -1,7 +1,7 @@
-# StellarFund — frontend
+# Lumina — frontend
 
 Next.js 16 + TypeScript + Tailwind CSS frontend for the
-[StellarFund Soroban crowdfunding contract](../README.md).
+[Lumina Soroban crowdfunding contract](../README.md).
 
 ## Quick start
 
