@@ -7,6 +7,7 @@ COMPOSE := docker compose
 CONTRACT_WASM := target/wasm32v1-none/release/crowdfunding.wasm
 NETWORK ?= testnet
 WEB_PORT ?= 3000
+BASE_PATH ?=
 
 .DEFAULT_GOAL := help
 
@@ -68,6 +69,16 @@ lint: ## Lint the frontend
 .PHONY: check
 check: ## RPC sanity check against testnet
 	cd $(WEB) && node --experimental-strip-types scripts/check.ts
+
+# ===== GitHub Pages (static export) ==========================================
+
+.PHONY: pages-build
+pages-build: ## Build the static site into web/out (set BASE_PATH=/<repo> for project pages)
+	cd $(WEB) && NEXT_OUTPUT=export NEXT_PUBLIC_BASE_PATH=$(BASE_PATH) npm run build
+
+.PHONY: pages-preview
+pages-preview: pages-build ## Build and serve the static site locally (http://localhost:5050)
+	cd $(WEB)/out && npx --yes serve -l 5050 .
 
 # ===== Smart contract ========================================================
 

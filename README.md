@@ -25,9 +25,9 @@ writes contract state, tracks every transaction's status, and streams contract
 
 All raw deployment metadata also lives in [`deployments/testnet.json`](deployments/testnet.json).
 
-**Live demo:** _optional_ — deploy the `web/` folder to Vercel (see
-[Deploy to Vercel](#deploy-to-vercel)). The app runs fully against the public testnet
-contract above with zero extra configuration.
+**Live demo:** deployable to **GitHub Pages** (static, see
+[Deploy to GitHub Pages](#deploy-to-github-pages)) or Vercel. The app runs fully against
+the public testnet contract above with zero extra configuration.
 
 ---
 
@@ -225,11 +225,30 @@ cp web/src/contracts/_tmp/src/index.ts web/src/contracts/crowdfunding.ts
 # update NEXT_PUBLIC_CONTRACT_ID in web/.env.local
 ```
 
+### Deploy to GitHub Pages
+
+The app also ships as a fully static build, deployable to GitHub Pages with **zero
+server**. A workflow ([`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml))
+builds a static export (`output: "export"`) and publishes it on every push to `main`.
+
+1. Push this repo to GitHub.
+2. In the repo: **Settings → Pages → Build and deployment → Source = GitHub Actions**.
+3. Push to `main` (or run the workflow manually). The app is published at
+   `https://<user>.github.io/<repo>/`.
+
+The workflow derives the correct `basePath` (`/<repo>`) automatically, so assets resolve
+under the project sub-path. Build it locally the same way:
+
+```bash
+make pages-build BASE_PATH=/<repo>   # outputs web/out
+make pages-preview BASE_PATH=/<repo> # build + serve at http://localhost:5050
+```
+
 ### Deploy to Vercel
 
-The frontend is a self-contained Next.js app. In Vercel, set the **Root Directory** to
-`web/`, and add the `NEXT_PUBLIC_*` variables from [`web/.env.example`](web/.env.example).
-No backend or server env is required.
+The frontend is also a self-contained Next.js server app. In Vercel, set the **Root
+Directory** to `web/`, and add the `NEXT_PUBLIC_*` variables from
+[`web/.env.example`](web/.env.example). No backend or server env is required.
 
 ---
 
